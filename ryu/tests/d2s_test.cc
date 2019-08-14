@@ -18,7 +18,12 @@
 #include <math.h>
 
 #include "ryu/ryu.h"
-#include "third_party/gtest/gtest.h"
+
+#define CATCH_CONFIG_MAIN
+#include "ryu/catch.h"
+using namespace Catch::Matchers;
+#define TEST(a,b) TEST_CASE( #a #b )
+#define ASSERT_STREQ(a, b) REQUIRE_THAT(a, Equals(b))
 
 static double int64Bits2Double(uint64_t bits) {
   double f;

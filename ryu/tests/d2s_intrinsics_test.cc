@@ -18,7 +18,11 @@
 #include <math.h>
 
 #include "ryu/d2s_intrinsics.h"
-#include "third_party/gtest/gtest.h"
+
+#include "ryu/catch.h"
+using namespace Catch::Matchers;
+#define TEST(a,b) TEST_CASE( #a #b )
+#define EXPECT_EQ(a, b) REQUIRE((a) == (b))
 
 TEST(D2sIntrinsicsTest, mod1e9) {
   EXPECT_EQ(0u, mod1e9(0));

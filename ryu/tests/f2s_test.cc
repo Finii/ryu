@@ -16,9 +16,14 @@
 // KIND, either express or implied.
 
 #include <math.h>
+#include <cstring>
 
 #include "ryu/ryu.h"
-#include "third_party/gtest/gtest.h"
+
+#include "ryu/catch.h"
+using namespace Catch::Matchers;
+#define TEST(a,b) TEST_CASE( #a #b )
+#define ASSERT_STREQ(a, b) REQUIRE_THAT(a, Equals(b))
 
 static float int32Bits2Float(uint32_t bits) {
   float f;

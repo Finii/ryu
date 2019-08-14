@@ -17,9 +17,14 @@
 
 #include <math.h>
 #include <stdint.h>
+#include <cstring>
 
 #include "ryu/ryu.h"
-#include "third_party/gtest/gtest.h"
+
+#include "ryu/catch.h"
+using namespace Catch::Matchers;
+#define TEST(a,b) TEST_CASE( #a #b )
+#define EXPECT_STREQ(a, b) REQUIRE_THAT(a, Equals(b))
 
 struct test_case {
   double value;

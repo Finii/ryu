@@ -18,7 +18,11 @@
 #include <inttypes.h>
 #include <math.h>
 
-#include "third_party/gtest/gtest.h"
+#include "ryu/catch.h"
+using namespace Catch::Matchers;
+#define TEST(a,b) TEST_CASE( #a #b )
+#define EXPECT_EQ(a, b) REQUIRE((a) == (b))
+
 #include "ryu/common.h"
 #include "ryu/d2s_intrinsics.h"
 #include "ryu/d2s_small_table.h"

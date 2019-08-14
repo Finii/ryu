@@ -16,10 +16,16 @@
 // KIND, either express or implied.
 
 #include <math.h>
+#include <cstring>
 
 #include "ryu/ryu_generic_128.h"
 #include "ryu/generic_128.h"
-#include "third_party/gtest/gtest.h"
+
+#include "ryu/catch.h"
+using namespace Catch::Matchers;
+#define TEST(a,b) TEST_CASE( #a #b )
+#define ASSERT_EQ(a, b) REQUIRE((a) == (b))
+#define ASSERT_STREQ(a, b) REQUIRE_THAT(a, Equals(b))
 
 // We only test a few entries - we could test the full table instead, but should we?
 static uint32_t EXACT_POW5_IDS[10] = {
